@@ -1,17 +1,17 @@
-FROM ruby:2.4.1-alpine
+FROM alpine:3.6
 
-RUN apk add --no-cache build-base cmake
+RUN apk add --no-cache build-base cmake git ruby ruby-dev ruby-json ruby-io-console elixir erlang-crypto nodejs nodejs-npm
 
-ENV APP_HOME /app
+RUN gem install --no-document --conservative pronto pronto-rubocop pronto-credo pronto-eslint_npm pronto-stylelint
 
-WORKDIR $APP_HOME
+RUN npm install -g eslint stylelint
 
-COPY Gemfile* $APP_HOME/
+RUN mix local.hex --force
 
-RUN bundle install --deployment
+RUN mix archive.install --force github rrrene/bunt
 
-ENV BUNDLE_GEMFILE $APP_HOME/Gemfile
+RUN mix archive.install --force github rrrene/credo
 
 WORKDIR /data
 
-CMD ["bundle", "exec", "pronto", "run"]
+CMD ["pronto", "run"]
