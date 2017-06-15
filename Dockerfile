@@ -6,7 +6,10 @@ RUN gem install --no-document --conservative pronto pronto-rubocop pronto-credo 
 
 RUN npm install -g eslint stylelint
 
-RUN mix local.hex --force
+RUN mix do local.hex --force, local.rebar --force
+
+# Tools for building (erlang) dependencies
+RUN apk add --no-cache erlang-syntax-tools erlang-parsetools
 
 RUN mix archive.install --force github rrrene/bunt
 
