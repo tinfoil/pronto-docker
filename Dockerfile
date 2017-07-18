@@ -4,7 +4,8 @@ RUN apk add --no-cache build-base cmake git ruby ruby-dev ruby-json ruby-io-cons
 
 RUN gem install --no-document specific_install \
   && gem specific_install --location https://github.com/bsedat/pronto --branch rugged-workaround \
-  && gem install --no-document --conservative pronto-rubocop pronto-credo pronto-eslint_npm pronto-stylelint
+  && gem specific_install --location https://github.com/tinfoil/pronto-credo \
+  && gem install --no-document --conservative pronto-rubocop pronto-eslint_npm pronto-stylelint
 
 RUN npm install -g eslint@4.2.0 stylelint@8.0.0 stylelint-config-standard
 
