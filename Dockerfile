@@ -13,9 +13,8 @@ RUN mix do local.hex --force, local.rebar --force
 # Tools for building (erlang) dependencies
 RUN apk add --no-cache erlang-syntax-tools erlang-parsetools
 
-RUN mix archive.install --force github rrrene/bunt
-
-RUN mix archive.install --force github rrrene/credo
+RUN mix archive.install --force hex bunt 0.2.0
+RUN mix archive.install --force hex credo 0.8.4
 
 WORKDIR /data
 
