@@ -7,7 +7,13 @@ RUN gem install --no-document specific_install \
   && gem specific_install --location https://github.com/tinfoil/pronto-credo \
   && gem install --no-document --conservative pronto-rubocop pronto-eslint_npm pronto-stylelint
 
-RUN npm install -g eslint@4.2.0 stylelint@8.0.0 stylelint-config-standard
+RUN npm install -g \
+  eslint@^4.2.0 \
+  postcss-sass \
+  stylelint@^8.0.0 \
+  stylelint-config-standard \
+  stylelint-config-recommended-scss \
+  stylelint-scss
 
 RUN mix do local.hex --force, local.rebar --force
 
