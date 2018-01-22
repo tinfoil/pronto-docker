@@ -1,6 +1,6 @@
-FROM alpine:3.6
+FROM elixir:1.6.0-alpine
 
-RUN apk add --no-cache build-base cmake git ruby ruby-dev ruby-json ruby-io-console elixir erlang-crypto nodejs nodejs-npm
+RUN apk add --no-cache build-base cmake git ruby ruby-dev ruby-json ruby-io-console nodejs nodejs-npm
 
 RUN gem install --no-document specific_install \
   && gem specific_install --location https://github.com/bsedat/pronto --branch rugged-workaround \
