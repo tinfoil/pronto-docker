@@ -5,7 +5,8 @@ RUN apk add --no-cache build-base cmake git ruby ruby-dev ruby-json ruby-io-cons
 RUN gem install --no-document --conservative pronto pronto-rubocop pronto-eslint_npm pronto-stylelint pronto-credo
 
 RUN npm install -g \
-  eslint@^4.2.0 \
+  eslint@^4.16.0 \
+  eslint-plugin-react \
   postcss-sass \
   stylelint@^8.0.0 \
   stylelint-config-standard \
