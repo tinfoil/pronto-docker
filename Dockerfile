@@ -2,10 +2,7 @@ FROM elixir:1.6.0-alpine
 
 RUN apk add --no-cache build-base cmake git ruby ruby-dev ruby-json ruby-io-console nodejs nodejs-npm
 
-RUN gem install --no-document specific_install \
-  && gem specific_install --location https://github.com/bsedat/pronto --branch rugged-workaround \
-  && gem specific_install --location https://github.com/tinfoil/pronto-credo \
-  && gem install --no-document --conservative pronto-rubocop pronto-eslint_npm pronto-stylelint
+RUN gem install --no-document --conservative pronto pronto-rubocop pronto-eslint_npm pronto-stylelint pronto-credo
 
 RUN npm install -g \
   eslint@^4.2.0 \
