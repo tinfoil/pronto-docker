@@ -15,11 +15,7 @@ RUN npm install -g \
 
 RUN mix do local.hex --force, local.rebar --force
 
-# Tools for building (erlang) dependencies
-RUN apk add --no-cache erlang-syntax-tools erlang-parsetools
-
-RUN mix archive.install --force hex bunt 0.2.0
-RUN mix archive.install --force hex credo 0.8.4
+RUN mix archive.install --force hex credo 0.9.0-rc2
 
 WORKDIR /data
 
