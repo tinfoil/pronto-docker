@@ -1,4 +1,4 @@
-FROM elixir:1.6.0-alpine
+FROM elixir:1.6.1-alpine
 
 RUN apk add --no-cache build-base cmake git ruby ruby-dev ruby-json ruby-io-console nodejs nodejs-npm
 
