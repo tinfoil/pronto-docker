@@ -18,7 +18,8 @@ RUN npm install -g \
 
 RUN mix do local.hex --force, local.rebar --force
 
-RUN mix archive.install --force hex credo 0.9.0-rc2
+RUN mix archive.install --force hex bunt 0.2.0
+RUN mix archive.install --force hex credo 0.9.0-rc6
 
 WORKDIR /data
 
